@@ -825,6 +825,28 @@ async function enviarEstampa(){
   localStorage.setItem("estampaISESEnviada", "true");
 
 }
+    window.addEventListener("load", function(){
+
+  if(localStorage.getItem("estampaISESEnviada") === "true"){
+
+    const btnEnviar = document.querySelector('button[onclick="enviarEstampa()"]');
+
+    if(btnEnviar){
+
+      btnEnviar.disabled = true;
+
+      btnEnviar.textContent = "✅ Estampa enviada";
+
+      btnEnviar.style.opacity = "0.55";
+
+      btnEnviar.style.cursor = "not-allowed";
+
+    }
+
+  }
+
+});
+
 </script>
   
 
