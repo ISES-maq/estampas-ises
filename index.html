@@ -804,16 +804,26 @@ async function enviarEstampa(){
 
     const json = await res.json();
 
-    if(json.ok){
-      alert("Estampa guardada en Drive ✨");
-    } else {
-      alert("No se pudo guardar: " + (json.mensaje || "Error desconocido"));
-    }
+   if(json.ok){
 
-  } catch(error){
-    console.error(error);
-    alert("Error al guardar.");
+  alert("Tu estampa ya fue enviada y guardada correctamente ✨");
+
+  const btnEnviar = document.querySelector('button[onclick="enviarEstampa()"]');
+
+  if(btnEnviar){
+
+    btnEnviar.disabled = true;
+
+    btnEnviar.textContent = "✅ Estampa enviada";
+
+    btnEnviar.style.opacity = "0.55";
+
+    btnEnviar.style.cursor = "not-allowed";
+
   }
+
+  localStorage.setItem("estampaISESEnviada", "true");
+
 }
 </script>
   
