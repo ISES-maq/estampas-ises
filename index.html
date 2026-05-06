@@ -775,6 +775,7 @@ function ajustarNombre(){
       }
     }
 
+    
     function limpiarParaArchivo(texto){
       return texto
         .replace(titulosProhibidos,'')
@@ -786,6 +787,31 @@ function ajustarNombre(){
         .replace(/\s+/g,'-')
         .toUpperCase();
     }
+
+document.getElementById('cameraInput').addEventListener('change', cargarFotoDesdeInput);
+document.getElementById('galleryInput').addEventListener('change', cargarFotoDesdeInput);
+
+function cargarFotoDesdeInput(e) {
+
+  const file = e.target.files[0];
+
+  if (!file) return;
+
+  const reader = new FileReader();
+
+  reader.onload = function(ev) {
+
+    fotoDataURL = ev.target.result;
+
+    document.getElementById('stampPhoto').src = fotoDataURL;
+
+    generarPreview();
+
+  };
+
+  reader.readAsDataURL(file);
+
+}    
     function guardarEnDrive(payload){
 
   const iframeName = "driveFrame_" + Date.now();
