@@ -405,24 +405,45 @@ font-weight:800;
       text-transform:uppercase;
       color:rgba(255,255,255,.66);
     }
+.stamp-name{
 
-    .stamp-name{
-      margin-top:34px;
-      width:100%;
-      font-family:'Montserrat',sans-serif;
-      font-size:clamp(1.8rem,5vw,3.4rem);
-      font-weight:900;
-      line-height:.92;
-      text-align:center;
-      white-space:nowrap;
-      overflow:hidden;
-      text-shadow:
+  width:100%;
 
-  0 4px 18px rgba(0,0,0,.45);
+  text-align:center;
 
-padding:0 10px;
-      color:white;
-    }
+  font-family:'Montserrat',sans-serif;
+
+  font-weight:900;
+
+  font-size:clamp(1.8rem,4vw,3.6rem);
+
+  line-height:.92;
+
+  letter-spacing:-0.03em;
+
+  color:white;
+
+  text-shadow:
+
+    0 4px 18px rgba(0,0,0,.45);
+
+  padding:0 22px;
+
+  margin-top:18px;
+
+  margin-bottom:10px;
+
+  white-space:nowrap;
+
+  overflow:visible;
+
+  text-overflow:unset;
+
+  position:relative;
+
+  z-index:10;
+
+}
 
     .stamp-meta{
       margin-top:12px;
@@ -460,7 +481,10 @@ padding:0 10px;
         height:560px;
       }
 
-      .stamp-content{padding:18px}
+      .stamp-content{
+  padding:18px;
+  justify-content:flex-start;
+}
 
       .stamp-logo-box{
         width:48px;
