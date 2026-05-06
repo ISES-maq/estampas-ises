@@ -1,8 +1,3 @@
-<!-- =========================
-PEGAR ESTO COMPLETO EN index.html
-BORRA TODO LO ANTERIOR
-========================= -->
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,18 +8,12 @@ BORRA TODO LO ANTERIOR
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Montserrat:wght@500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
   <style>
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+    *{margin:0;padding:0;box-sizing:border-box}
 
     :root{
       --verde:#15653A;
@@ -33,58 +22,40 @@ BORRA TODO LO ANTERIOR
       --azul2:#132F61;
       --dorado:#D5B04B;
       --dorado2:#F0D27A;
-      --blanco:#FFFFFF;
     }
 
     body{
       font-family:'Poppins',sans-serif;
       min-height:100vh;
-      background:
-        radial-gradient(circle at top,#214A82 0%,#0B1F43 45%,#07152F 100%);
+      background:radial-gradient(circle at top,#214A82 0%,#0B1F43 45%,#07152F 100%);
       color:white;
       padding:40px 20px;
     }
 
-    .header{
-      text-align:center;
-      margin-bottom:36px;
-    }
+    .header{text-align:center;margin-bottom:36px}
 
     .header-badge{
       display:inline-flex;
-      align-items:center;
-      gap:8px;
-      background:linear-gradient(
-        135deg,
-        var(--dorado),
-        var(--dorado2)
-      );
-
+      background:linear-gradient(135deg,var(--dorado),var(--dorado2));
       color:var(--azul);
-
       padding:8px 18px;
-
       border-radius:999px;
-
       font-size:.72rem;
       font-weight:800;
       letter-spacing:.16em;
       text-transform:uppercase;
-
       margin-bottom:18px;
     }
 
     .header h1{
       font-family:'Montserrat',sans-serif;
-      font-size:clamp(2.5rem,7vw,5rem);
+      font-size:clamp(2.4rem,7vw,4.8rem);
       font-weight:900;
       line-height:1;
-      letter-spacing:-0.03em;
+      letter-spacing:-.03em;
     }
 
-    .header h1 span{
-      color:var(--dorado2);
-    }
+    .header h1 span{color:var(--dorado2)}
 
     .header p{
       margin-top:12px;
@@ -95,29 +66,21 @@ BORRA TODO LO ANTERIOR
     .app{
       max-width:1180px;
       margin:auto;
-
       display:grid;
       grid-template-columns:420px 1fr;
-
       gap:40px;
       align-items:start;
     }
 
     @media(max-width:900px){
-      .app{
-        grid-template-columns:1fr;
-      }
+      .app{grid-template-columns:1fr}
     }
 
     .panel{
       background:rgba(255,255,255,.06);
-
       border:1px solid rgba(255,255,255,.1);
-
       border-radius:28px;
-
       padding:28px;
-
       backdrop-filter:blur(14px);
     }
 
@@ -125,54 +88,36 @@ BORRA TODO LO ANTERIOR
       font-family:'Montserrat',sans-serif;
       font-size:1.8rem;
       font-weight:800;
-
       margin-bottom:24px;
-
       color:var(--dorado2);
     }
 
-    .form-group{
-      margin-bottom:18px;
-    }
+    .form-group{margin-bottom:18px}
 
     label{
       display:block;
-
       margin-bottom:8px;
-
       font-size:.76rem;
       font-weight:800;
-
       text-transform:uppercase;
       letter-spacing:.15em;
-
       color:rgba(255,255,255,.72);
     }
 
-    input,
-    select{
+    input,select{
       width:100%;
-
       border:none;
       outline:none;
-
       padding:16px 18px;
-
       border-radius:16px;
-
       background:rgba(255,255,255,.08);
-
       border:1px solid rgba(255,255,255,.16);
-
       color:white;
-
       font-family:'Poppins',sans-serif;
       font-size:1rem;
     }
 
-    input::placeholder{
-      color:rgba(255,255,255,.35);
-    }
+    input::placeholder{color:rgba(255,255,255,.35)}
 
     .hint{
       margin-top:6px;
@@ -182,15 +127,10 @@ BORRA TODO LO ANTERIOR
 
     .upload{
       position:relative;
-
       border:2px dashed rgba(213,176,75,.45);
-
       border-radius:22px;
-
       padding:26px;
-
       text-align:center;
-
       overflow:hidden;
     }
 
@@ -206,57 +146,37 @@ BORRA TODO LO ANTERIOR
       margin-bottom:10px;
     }
 
-    .upload p{
-      color:rgba(255,255,255,.65);
-    }
+    .upload p{color:rgba(255,255,255,.65)}
 
     .btns{
       display:flex;
       flex-direction:column;
       gap:12px;
-
       margin-top:24px;
     }
 
     button{
       border:none;
       cursor:pointer;
-
       border-radius:18px;
-
       padding:18px;
-
       font-family:'Montserrat',sans-serif;
       font-size:1rem;
       font-weight:800;
-
       text-transform:uppercase;
       letter-spacing:.08em;
-
       transition:.2s;
     }
 
-    button:hover{
-      transform:translateY(-2px);
-    }
+    button:hover{transform:translateY(-2px)}
 
     .btn-primary{
-      background:linear-gradient(
-        135deg,
-        var(--verde),
-        var(--verde2)
-      );
-
+      background:linear-gradient(135deg,var(--verde),var(--verde2));
       color:white;
     }
 
     .btn-secondary{
-      background:linear-gradient(
-        135deg,
-        var(--dorado),
-        var(--dorado2)
-      );
-
+      background:linear-gradient(135deg,var(--dorado),var(--dorado2));
       color:var(--azul);
     }
 
@@ -268,55 +188,27 @@ BORRA TODO LO ANTERIOR
     #stamp-card{
       width:420px;
       height:640px;
-
       position:relative;
-
       border-radius:34px;
-
       overflow:hidden;
-
-      background:
-        linear-gradient(
-          160deg,
-          #0F4A2A 0%,
-          #176D40 35%,
-          #0B1F43 72%,
-          #183A74 100%
-        );
-
+      background:linear-gradient(160deg,#0F4A2A 0%,#176D40 35%,#0B1F43 72%,#183A74 100%);
       border:4px solid var(--dorado);
-
-      box-shadow:
-        0 0 0 8px rgba(11,31,67,.8),
-        0 34px 80px rgba(0,0,0,.45);
+      box-shadow:0 0 0 8px rgba(11,31,67,.8),0 34px 80px rgba(0,0,0,.45);
     }
 
     #stamp-card::before{
       content:"";
-
       position:absolute;
       inset:0;
-
-      background:
-        repeating-linear-gradient(
-          45deg,
-          transparent,
-          transparent 18px,
-          rgba(255,255,255,.02) 18px,
-          rgba(255,255,255,.02) 36px
-        );
-
+      background:repeating-linear-gradient(45deg,transparent,transparent 18px,rgba(255,255,255,.02) 18px,rgba(255,255,255,.02) 36px);
       opacity:.9;
     }
 
     .stamp-content{
       position:relative;
       z-index:10;
-
-      padding:22px 22px 18px;
-
+      padding:22px;
       height:100%;
-
       display:flex;
       flex-direction:column;
       align-items:center;
@@ -324,10 +216,10 @@ BORRA TODO LO ANTERIOR
 
     .stamp-header{
       width:100%;
-
       display:flex;
       align-items:center;
       justify-content:space-between;
+      margin-bottom:18px;
     }
 
     .stamp-logo-area{
@@ -339,7 +231,6 @@ BORRA TODO LO ANTERIOR
     .stamp-logo-box{
       width:58px;
       height:58px;
-
       display:flex;
       align-items:center;
       justify-content:center;
@@ -349,548 +240,344 @@ BORRA TODO LO ANTERIOR
       width:100%;
       height:100%;
       object-fit:contain;
-
-      filter:
-        drop-shadow(0 6px 16px rgba(0,0,0,.25));
+      filter:drop-shadow(0 6px 16px rgba(0,0,0,.25));
     }
 
     .stamp-inst-name{
       font-family:'Montserrat',sans-serif;
-      font-size:1.2rem;
+      font-size:1.25rem;
       font-weight:900;
       letter-spacing:.04em;
     }
 
-    .stamp-subtitle{
-      font-family:'Lato',sans-serif;
-      font-size:.6rem;
-      font-weight:800;
-
-      color:rgba(255,255,255,.65);
-
-      text-transform:uppercase;
-      letter-spacing:.16em;
-
-      margin-top:3px;
-    }
-
     .year-badge{
-      background:linear-gradient(
-        135deg,
-        var(--dorado),
-        var(--dorado2)
-      );
-
+      background:linear-gradient(135deg,var(--dorado),var(--dorado2));
       color:var(--azul);
-
       padding:8px 14px;
-
       border-radius:999px;
-
       font-size:.82rem;
       font-weight:900;
-
       font-family:'Montserrat',sans-serif;
     }
 
     .title-block{
       text-align:center;
-      margin-top:10px;
+      margin-bottom:22px;
     }
 
     .title-block h2{
       font-family:'Montserrat',sans-serif;
       font-size:2rem;
       font-weight:900;
-      line-height:1;
+      line-height:1.05;
+      letter-spacing:.01em;
     }
 
     .title-block p{
-      margin-top:6px;
-
+      margin-top:8px;
       color:var(--dorado2);
-
-      font-size:.75rem;
+      font-size:.76rem;
       font-weight:800;
-
       text-transform:uppercase;
-      letter-spacing:.2em;
+      letter-spacing:.18em;
+    }
+
+    .photo-stats-row{
+      width:100%;
+      display:grid;
+      grid-template-columns:1fr 76px;
+      gap:14px;
+      align-items:center;
+      margin-top:4px;
     }
 
     .photo-container{
       position:relative;
-
-      margin-top:24px;
+      display:flex;
+      justify-content:center;
     }
 
     .photo-ring{
-      width:260px;
-      height:260px;
-
+      width:250px;
+      height:250px;
       border-radius:50%;
-
       padding:6px;
-
-      background:
-        conic-gradient(
-          from 0deg,
-          var(--dorado2),
-          var(--dorado),
-          #9D7820,
-          var(--dorado),
-          var(--dorado2)
-        );
-
-      box-shadow:
-        0 0 30px rgba(213,176,75,.28),
-        0 18px 34px rgba(0,0,0,.38);
+      background:conic-gradient(from 0deg,var(--dorado2),var(--dorado),#9D7820,var(--dorado),var(--dorado2));
+      box-shadow:0 0 30px rgba(213,176,75,.28),0 18px 34px rgba(0,0,0,.38);
     }
 
     .photo-inner{
       width:100%;
       height:100%;
-
       border-radius:50%;
-
       overflow:hidden;
-
       border:4px solid #0B1F43;
-
       background:#1E376B;
     }
 
     .photo-inner img{
       width:100%;
       height:100%;
-
       object-fit:cover;
       object-position:center top;
     }
 
     .plantel-tag{
       position:absolute;
-
       bottom:-10px;
       left:50%;
-
       transform:translateX(-50%);
-
-      background:linear-gradient(
-        135deg,
-        var(--verde),
-        var(--verde2)
-      );
-
+      background:linear-gradient(135deg,var(--verde),var(--verde2));
       border:2px solid var(--dorado);
-
       padding:7px 16px;
-
       border-radius:999px;
-
-      font-size:.7rem;
+      font-size:.68rem;
       font-weight:800;
-
       text-transform:uppercase;
-      letter-spacing:.14em;
-
+      letter-spacing:.12em;
       white-space:nowrap;
     }
 
-    .stamp-name{
-      margin-top:28px;
-
-      font-family:'Montserrat',sans-serif;
-      font-size:2rem;
-      font-weight:900;
-
-      line-height:1.08;
-
-      text-align:center;
-
-      max-width:90%;
-    }
-
-    .stamp-meta{
-      margin-top:10px;
-
+    .stats-vertical{
       display:flex;
-      align-items:center;
-      gap:10px;
-
-      color:rgba(255,255,255,.7);
-
-      font-size:.82rem;
-      font-weight:700;
-    }
-
-    .divider{
-      width:100%;
-      height:1px;
-
-      margin:18px 0;
-
-      background:
-        linear-gradient(
-          90deg,
-          transparent,
-          var(--dorado),
-          transparent
-        );
-    }
-
-    .stats{
-      width:100%;
-
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-
+      flex-direction:column;
       gap:8px;
     }
 
     .stat{
-      background:rgba(255,255,255,.06);
-
-      border:1px solid rgba(213,176,75,.22);
-
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(213,176,75,.28);
       border-radius:14px;
-
-      padding:10px 6px;
-
+      padding:8px 6px;
       text-align:center;
+      backdrop-filter:blur(8px);
     }
 
     .stat strong{
       display:block;
-
       font-family:'Montserrat',sans-serif;
-      font-size:1.7rem;
+      font-size:1.28rem;
       font-weight:900;
-
       color:var(--dorado2);
-
       line-height:1;
     }
 
     .stat span{
       display:block;
-
-      margin-top:5px;
-
-      font-size:.58rem;
-      font-weight:800;
-
-      letter-spacing:.1em;
+      margin-top:3px;
+      font-size:.48rem;
+      font-weight:900;
+      letter-spacing:.08em;
       text-transform:uppercase;
+      color:rgba(255,255,255,.66);
+    }
 
-      color:rgba(255,255,255,.6);
+    .stamp-name{
+      margin-top:34px;
+      width:100%;
+      font-family:'Montserrat',sans-serif;
+      font-size:2.3rem;
+      font-weight:900;
+      line-height:1;
+      text-align:center;
+      white-space:nowrap;
+      overflow:hidden;
+      color:white;
+    }
+
+    .stamp-meta{
+      margin-top:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      color:rgba(255,255,255,.72);
+      font-size:.82rem;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.03em;
+      width:100%;
+    }
+
+    .divider{
+      width:100%;
+      height:1px;
+      margin:18px 0 12px;
+      background:linear-gradient(90deg,transparent,var(--dorado),transparent);
     }
 
     .quote{
       margin-top:auto;
-
       text-align:center;
-
-      font-size:.8rem;
+      font-size:.78rem;
       font-style:italic;
-
       color:rgba(255,255,255,.55);
-
-      padding:0 16px;
+      padding:0 18px;
     }
 
     @media(max-width:480px){
-
       #stamp-card{
         width:340px;
         height:560px;
       }
 
-      .photo-ring{
-        width:220px;
-        height:220px;
+      .stamp-content{padding:18px}
+
+      .stamp-logo-box{
+        width:48px;
+        height:48px;
       }
+
+      .stamp-inst-name{font-size:1rem}
+
+      .title-block h2{font-size:1.45rem}
+
+      .title-block p{font-size:.62rem}
+
+      .photo-stats-row{
+        grid-template-columns:1fr 62px;
+        gap:10px;
+      }
+
+      .photo-ring{
+        width:205px;
+        height:205px;
+      }
+
+      .stat{
+        padding:6px 4px;
+        border-radius:11px;
+      }
+
+      .stat strong{font-size:1rem}
+
+      .stat span{font-size:.4rem}
 
       .stamp-name{
-        font-size:1.55rem;
+        font-size:1.7rem;
+        margin-top:28px;
       }
 
-      .title-block h2{
-        font-size:1.5rem;
-      }
-
+      .stamp-meta{font-size:.68rem}
     }
-
   </style>
 </head>
 
 <body>
 
   <header class="header">
-
-    <div class="header-badge">
-      ✦ Día del Maestro 2026 ✦
-    </div>
-
-    <h1>
-      ESTAMPAS <span>ISES</span>
-    </h1>
-
-    <p>
-      Generación Docente 2026 · Álbum Coleccionable
-    </p>
-
+    <div class="header-badge">✦ Día del Maestro 2026 ✦</div>
+    <h1>ESTAMPAS <span>ISES</span></h1>
+    <p>Álbum coleccionable del equipo docente</p>
   </header>
 
   <main class="app">
 
     <section class="panel">
-
       <h2>📋 Tus datos</h2>
 
       <div class="form-group">
-
         <label>Tu foto</label>
-
         <div class="upload">
-
-          <input
-            type="file"
-            id="fotoInput"
-            accept="image/*"
-            capture="user"
-          />
-
-          <div class="upload-icon">
-            📷
-          </div>
-
-          <p>
-            Toca aquí para subir o tomar tu foto
-          </p>
-
+          <input type="file" id="fotoInput" accept="image/*" capture="user" />
+          <div class="upload-icon">📷</div>
+          <p>Toca aquí para subir o tomar tu foto</p>
         </div>
-
       </div>
 
       <div class="form-group">
-
         <label>Nombre y apellido</label>
-
-        <input
-          type="text"
-          id="inputNombre"
-          placeholder="Ej: Verónica Cuenca"
-        />
-
-        <div class="hint">
-          Escribe solo tu nombre y apellido, sin títulos.
-        </div>
-
+        <input type="text" id="inputNombre" placeholder="Ej: Verónica Cuenca" />
+        <div class="hint">Escribe solo tu nombre y apellido, sin títulos.</div>
       </div>
 
       <div class="form-group">
-
         <label>Plantel / Equipo</label>
-
         <select id="inputPlantel">
-
-          <option value="">
-            Selecciona tu plantel...
-          </option>
-
-          <option value="Maquinita">
-            Maquinita
-          </option>
-
-          <option value="Villada">
-            Villada
-          </option>
-
-          <option value="Bravo">
-            Bravo
-          </option>
-
-          <option value="Santiago Tianguistenco">
-            Santiago Tianguistenco
-          </option>
-
-          <option value="Ixtlahuaca">
-            Ixtlahuaca
-          </option>
-
+          <option value="">Selecciona tu plantel...</option>
+          <option value="Maquinita">Maquinita</option>
+          <option value="Villada">Villada</option>
+          <option value="Bravo">Bravo</option>
+          <option value="Santiago Tianguistenco">Santiago Tianguistenco</option>
+          <option value="Ixtlahuaca">Ixtlahuaca</option>
         </select>
-
       </div>
 
       <div class="form-group">
-
         <label>Rol o función</label>
-
-        <input
-          type="text"
-          id="inputRol"
-          placeholder="Ej: Docente"
-        />
-
+        <input type="text" id="inputRol" placeholder="Ej: Docente" />
       </div>
 
       <div class="form-group">
-
         <label>Año de ingreso a ISES</label>
-
-        <input
-          type="number"
-          id="inputAnio"
-          placeholder="Ej: 2018"
-        />
-
+        <input type="number" id="inputAnio" placeholder="Ej: 2018" />
       </div>
 
       <div class="btns">
-
-        <button
-          class="btn-primary"
-          onclick="generarPreview()"
-        >
-          👁 Vista previa
-        </button>
-
-        <button
-          class="btn-secondary"
-          onclick="descargarEstampa()"
-        >
-          ⬇ Descargar estampa
-        </button>
-
+        <button class="btn-primary" onclick="generarPreview()">👁 Vista previa</button>
+        <button class="btn-secondary" onclick="descargarEstampa()">⬇ Descargar estampa</button>
       </div>
-
     </section>
 
     <section class="preview">
-
       <div id="stamp-card">
-
         <div class="stamp-content">
 
           <div class="stamp-header">
-
             <div class="stamp-logo-area">
-
               <div class="stamp-logo-box">
-
-                <img
-                  src="logo.png"
-                  alt="ISES"
-                />
-
+                <img src="logo.png" alt="ISES" />
               </div>
-
-              <div>
-
-                <div class="stamp-inst-name">
-                  ISES
-                </div>
-
-                <div class="stamp-subtitle">
-                  ALINEACIÓN DOCENTE 2026
-                </div>
-
-              </div>
-
+              <div class="stamp-inst-name">ISES</div>
             </div>
 
-            <div class="year-badge">
-              2026
-            </div>
-
+            <div class="year-badge">2026</div>
           </div>
 
           <div class="title-block">
-
-            <h2>
-              GENERACIÓN DOCENTE
-            </h2>
-
-            <p>
-              ✦ Feliz Día del Maestro ✦
-            </p>
-
+            <h2>FELIZ DÍA DEL MAESTRO</h2>
+            <p>✦ Equipo docente ISES ✦</p>
           </div>
 
-          <div class="photo-container">
+          <div class="photo-stats-row">
 
-            <div class="photo-ring">
-
-              <div class="photo-inner">
-
-                <img
-                  id="stampPhoto"
-                  src="https://placehold.co/600x600/png"
-                />
-
+            <div class="photo-container">
+              <div class="photo-ring">
+                <div class="photo-inner">
+                  <img id="stampPhoto" src="https://placehold.co/600x600/png" alt="Foto docente" />
+                </div>
               </div>
 
+              <div class="plantel-tag" id="stampPlantel">Plantel</div>
             </div>
 
-            <div
-              class="plantel-tag"
-              id="stampPlantel"
-            >
-              Plantel
+            <div class="stats-vertical">
+              <div class="stat">
+                <strong>100</strong>
+                <span>Pasión</span>
+              </div>
+              <div class="stat">
+                <strong>100</strong>
+                <span>Dedicación</span>
+              </div>
+              <div class="stat">
+                <strong>100</strong>
+                <span>Equipo</span>
+              </div>
+              <div class="stat">
+                <strong>100</strong>
+                <span>Vocación</span>
+              </div>
             </div>
 
           </div>
 
-          <div
-            class="stamp-name"
-            id="stampNombre"
-          >
-            NOMBRE APELLIDO
-          </div>
+          <div class="stamp-name" id="stampNombre">NOMBRE APELLIDO</div>
 
           <div class="stamp-meta">
-
-            <span id="stampRol">
-              Docente
-            </span>
-
-            <span>
-              ◆
-            </span>
-
-            <span>
-              Desde
-              <span id="stampAnio">
-                2020
-              </span>
-            </span>
-
-          </div>
-
-          <div class="divider"></div>
-
-          <div class="stats">
-
-            <div class="stat">
-              <strong>100</strong>
-              <span>Pasión</span>
-            </div>
-
-            <div class="stat">
-              <strong>100</strong>
-              <span>Dedicación</span>
-            </div>
-
-            <div class="stat">
-              <strong>100</strong>
-              <span>Equipo</span>
-            </div>
-
-            <div class="stat">
-              <strong>100</strong>
-              <span>Vocación</span>
-            </div>
-
+            <span id="stampRol">Docente</span>
+            <span>◆</span>
+            <span>Desde <span id="stampAnio">2020</span></span>
           </div>
 
           <div class="divider"></div>
@@ -900,119 +587,106 @@ BORRA TODO LO ANTERIOR
           </div>
 
         </div>
-
       </div>
-
     </section>
 
   </main>
 
   <script>
-
     let fotoDataURL = null;
 
-    document
-      .getElementById('fotoInput')
-      .addEventListener('change',function(e){
+    const titulosProhibidos = /\b(maestra?|mtro?\.?|mtra?\.?|profesor(a)?|profa?\.?|lic\.?|licenciada?|doctor(a)?|dra?\.?|dr\.?|ing\.?|ingeniero(a)?)\b/gi;
 
-        const file = e.target.files[0];
+    document.getElementById('fotoInput').addEventListener('change',function(e){
+      const file = e.target.files[0];
+      if(!file) return;
 
-        if(!file) return;
+      const reader = new FileReader();
 
-        const reader = new FileReader();
+      reader.onload = function(ev){
+        fotoDataURL = ev.target.result;
+        document.getElementById('stampPhoto').src = fotoDataURL;
+      };
 
-        reader.onload = function(ev){
+      reader.readAsDataURL(file);
+    });
 
-          fotoDataURL = ev.target.result;
+    function limpiarNombreVisible(nombre){
+      return nombre
+        .replace(titulosProhibidos,'')
+        .replace(/\s+/g,' ')
+        .trim();
+    }
 
-          document
-            .getElementById('stampPhoto')
-            .src = fotoDataURL;
+    function ajustarNombre(){
+      const el = document.getElementById('stampNombre');
+      let size = 36;
 
-        };
+      el.style.fontSize = size + 'px';
 
-        reader.readAsDataURL(file);
-
-      });
+      while(el.scrollWidth > el.clientWidth && size > 17){
+        size -= 1;
+        el.style.fontSize = size + 'px';
+      }
+    }
 
     function generarPreview(){
-
-      const nombre =
-        document
-          .getElementById('inputNombre')
-          .value;
-
-      const plantel =
-        document
-          .getElementById('inputPlantel')
-          .value;
-
-      const rol =
-        document
-          .getElementById('inputRol')
-          .value;
-
-      const anio =
-        document
-          .getElementById('inputAnio')
-          .value;
+      const nombreRaw = document.getElementById('inputNombre').value;
+      const nombre = limpiarNombreVisible(nombreRaw);
+      const plantel = document.getElementById('inputPlantel').value;
+      const rol = document.getElementById('inputRol').value;
+      const anio = document.getElementById('inputAnio').value;
 
       if(nombre){
-        document
-          .getElementById('stampNombre')
-          .textContent =
-            nombre.toUpperCase();
+        document.getElementById('stampNombre').textContent = nombre.toUpperCase();
+        setTimeout(ajustarNombre,0);
       }
 
       if(plantel){
-        document
-          .getElementById('stampPlantel')
-          .textContent =
-            plantel.toUpperCase();
+        document.getElementById('stampPlantel').textContent = plantel.toUpperCase();
       }
 
       if(rol){
-        document
-          .getElementById('stampRol')
-          .textContent =
-            rol;
+        document.getElementById('stampRol').textContent = rol;
       }
 
       if(anio){
-        document
-          .getElementById('stampAnio')
-          .textContent =
-            anio;
+        document.getElementById('stampAnio').textContent = anio;
       }
+    }
 
+    function limpiarParaArchivo(texto){
+      return texto
+        .replace(titulosProhibidos,'')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g,'')
+        .replace(/ñ/gi,'n')
+        .replace(/[^a-zA-Z0-9 ]/g,'')
+        .trim()
+        .replace(/\s+/g,'-')
+        .toUpperCase();
     }
 
     async function descargarEstampa(){
+      generarPreview();
 
-      const card =
-        document
-          .getElementById('stamp-card');
+      const nombre = limpiarParaArchivo(document.getElementById('inputNombre').value || 'DOCENTE');
+      const plantel = limpiarParaArchivo(document.getElementById('inputPlantel').value || 'ISES');
+      const anio = String(document.getElementById('inputAnio').value || '2026').slice(-2);
 
-      const canvas =
-        await html2canvas(card,{
-          scale:3,
-          useCORS:true,
-          backgroundColor:null
-        });
+      const card = document.getElementById('stamp-card');
 
-      const link =
-        document.createElement('a');
+      const canvas = await html2canvas(card,{
+        scale:3,
+        useCORS:true,
+        backgroundColor:null
+      });
 
-      link.download =
-        'ESTAMPA_ISES.png';
-
-      link.href =
-        canvas.toDataURL('image/png');
-
+      const link = document.createElement('a');
+      link.download = `ESTAMPA_ISES_${plantel}_${nombre}_${anio}.png`;
+      link.href = canvas.toDataURL('image/png');
       link.click();
-
     }
-
   </script>
 
 </body>
