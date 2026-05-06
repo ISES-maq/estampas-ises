@@ -406,12 +406,17 @@
       margin-top:34px;
       width:100%;
       font-family:'Montserrat',sans-serif;
-      font-size:2.3rem;
+      font-size:clamp(1.8rem,5vw,3.4rem);
       font-weight:900;
-      line-height:1;
+      line-height:.92;
       text-align:center;
       white-space:nowrap;
       overflow:hidden;
+      text-shadow:
+
+  0 4px 18px rgba(0,0,0,.45);
+
+padding:0 10px;
       color:white;
     }
 
@@ -755,25 +760,81 @@ function ajustarNombre(){
     }
 
     async function descargarEstampa(){
-      generarPreview();
 
-      const nombre = limpiarParaArchivo(document.getElementById('inputNombre').value || 'DOCENTE');
-      const plantel = limpiarParaArchivo(document.getElementById('inputPlantel').value || 'ISES');
-      const anio = String(document.getElementById('inputAnio').value || '2026').slice(-2);
+  generarPreview();
 
-      const card = document.getElementById('stamp-card');
+  const nombreVisible =
+    limpiarNombreVisible(
+      document.getElementById('inputNombre').value || 'DOCENTE'
+    );
 
-      const canvas = await html2canvas(card,{
-        scale:3,
-        useCORS:true,
-        backgroundColor:null
-      });
+  const nombre =
+    limpiarParaArchivo(nombreVisible);
 
-      const link = document.createElement('a');
-      link.download = `ESTAMPA_ISES_${plantel}_${nombre}_${anio}.png`;
-      link.href = canvas.toDataURL('image/png');
-      link.click();
-    }
+  const plantelVisible =
+    document.getElementById('inputPlantel').value || 'ISES';
+
+  const plantel =
+    limpiarParaArchivo(plantelVisible);
+
+  const rol =
+    document.getElementById('inputRol').value || 'Docente';
+
+  const anioCompleto =
+    document.getElementById('inputAnio').value || '2026';
+
+  const anio =
+    String(anioCompleto).slice(-2);
+
+  const card =
+    document.getElementById('stamp-card');
+
+  const canvas =
+    await html2canvas(card,{
+      scale:3,
+      useCORS:true,
+      backgroundColor:null
+    });
+
+  const dataUrl =
+    canvas.toDataURL('image/png');
+
+  const imagenBase64 =
+    dataUrl.split(',')[1];
+
+  const nombreArchivo =
+    `ESTAMPA_ISES_${plantel}_${nombre}_${anio}.png`;
+
+  const link =
+    document.createElement('a');
+
+  link.download =
+    nombreArchivo;
+
+  link.href =
+    dataUrl;
+
+  link.click();
+
+  await fetch(APPS_SCRIPT_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "text/plain;charset=utf-8"
+    },
+    body: JSON.stringify({
+      nombre: nombreVisible,
+      plantel: plantelVisible,
+      rol: rol,
+      anio: anioCompleto,
+      nombreArchivo: nombreArchivo,
+      imagenBase64: imagenBase64
+    })
+  });
+
+  alert("Estampa guardada en Drive ✨");
+
+}
   </script>
 
 </body>
