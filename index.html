@@ -822,7 +822,7 @@ function ajustarNombre(){
 
 }
 
-    async function descargarEstampa(){
+async function enviarEstampa(){
 
   generarPreview();
 
@@ -854,48 +854,49 @@ function ajustarNombre(){
 
   const canvas =
     await html2canvas(card,{
-      scale:3,
+      scale:2,
       useCORS:true,
       backgroundColor:null
     });
 
   const dataUrl =
-    canvas.toDataURL('image/png');
+    canvas.toDataURL('image/jpeg', 0.82);
 
   const imagenBase64 =
     dataUrl.split(',')[1];
 
   const nombreArchivo =
-    `ESTAMPA_ISES_${plantel}_${nombre}_${anio}.png`;
+    `ESTAMPA_ISES_${plantel}_${nombre}_${anio}.jpg`;
 
-  const link =
-    document.createElement('a');
+  try {
 
-  link.download =
-    nombreArchivo;
+    const res =
+      await fetch(APPS_SCRIPT_URL, {
+        method:'POST',
+        body:JSON.stringify({
+          nombre:nombreVisible,
+          plantel:plantelVisible,
+          rol:rol,
+          anio:anioCompleto,
+          nombreArchivo:nombreArchivo,
+          imagenBase64:imagenBase64
+        })
+      });
 
-  link.href =
-    dataUrl;
+    const json = await res.json();
 
-  link.click();
+    if(json.ok){
+      alert("Estampa guardada en Drive ✨");
+    } else {
+      alert("No se pudo guardar.");
+    }
 
-  await fetch(APPS_SCRIPT_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "text/plain;charset=utf-8"
-    },
-    body: JSON.stringify({
-      nombre: nombreVisible,
-      plantel: plantelVisible,
-      rol: rol,
-      anio: anioCompleto,
-      nombreArchivo: nombreArchivo,
-      imagenBase64: imagenBase64
-    })
-  });
+  } catch(error){
+    console.error(error);
+    alert("Error al guardar.");
+  }
 
-  alert("Estampa guardada en Drive ✨");
-
+}
 }
   </script>
 
