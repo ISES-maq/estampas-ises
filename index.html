@@ -610,7 +610,7 @@ font-weight:800;
 
       <div class="btns">
         <button class="btn-primary" onclick="generarPreview()">👁 Vista previa</button>
-        <button class="btn-secondary" onclick="descargarEstampa()">⬇ Enviar y Descargar"
+        <button class="btn-secondary" onclick="descargarEstampa()">⬇ Enviar y Descargar
       </div>
     </section>
 
@@ -786,6 +786,41 @@ function ajustarNombre(){
         .replace(/\s+/g,'-')
         .toUpperCase();
     }
+    function guardarEnDrive(payload){
+
+  const iframeName = "driveFrame_" + Date.now();
+
+  const iframe = document.createElement("iframe");
+  iframe.name = iframeName;
+  iframe.style.display = "none";
+
+  document.body.appendChild(iframe);
+
+  const form = document.createElement("form");
+
+  form.method = "POST";
+  form.action = APPS_SCRIPT_URL;
+  form.target = iframeName;
+
+  form.style.display = "none";
+
+  const input = document.createElement("textarea");
+
+  input.name = "payload";
+  input.value = JSON.stringify(payload);
+
+  form.appendChild(input);
+
+  document.body.appendChild(form);
+
+  form.submit();
+
+  setTimeout(() => {
+    form.remove();
+    iframe.remove();
+  }, 8000);
+
+}
 
     async function descargarEstampa(){
 
